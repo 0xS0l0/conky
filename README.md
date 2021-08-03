@@ -3,7 +3,7 @@ Conky configuration file
 
 my Conky configuration files. 
 
-![screenshort](https://raw.githubusercontent.com/0xS0l0/conky_config_file/main/Screenshot.png)
+![Screenshot](https://user-images.githubusercontent.com/53935554/128070438-a82505f8-2f0c-486c-a90e-cd712db7363d.png)
 
 
 Installation
