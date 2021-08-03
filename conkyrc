@@ -1,0 +1,94 @@
+conky.config = {
+    alignment = 'top_right',
+    background = false,
+    border_width = 0,
+    border_inner_margin = 8,
+    cpu_avg_samples = 2,
+    default_color = '#ffffff',
+    color1 = '#00ff00',
+    color2 = '#AFFF06',
+    color3 = '#00ffff',
+    default_outline_color = 'white',
+    default_shade_color = '#999999',
+    double_buffer = true,
+    draw_borders = false,
+    draw_graph_borders = false,
+    draw_outline = false,
+    draw_shades = false,
+    extra_newline = false,
+    font = 'DejaVu Sans Mono:size=10',
+    gap_x = 30,
+    gap_y = 80,
+    minimum_height = 240,
+    minimum_width = 180,
+    net_avg_samples = 2,
+    no_buffers = true,
+    out_to_console = false,
+    out_to_stderr = false,
+    out_to_x = true,
+    own_window = true,
+    own_window_colour = '#0c0c0c',
+    own_window_transparent = false,
+    own_window_argb_visual = true,
+    own_window_argb_value = 128,
+    own_window_class = 'Conky',
+    own_window_type = 'desktop',
+    own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+    show_graph_range = false,
+    show_graph_scale = false,
+    stippled_borders = 0,
+    update_interval = 1,
+    uppercase = false,
+    use_spacer = 'none',
+    use_xft = true,
+}
+
+conky.text = [[
+${color1}${font ConkySymbols:size=20}${font} ${voffset -10}GNU/Linux $hr ${color}
+${color1}${goto 35}OS     : ${color}${execi 86400 cat `ls -atr /etc/*-release | tail -2` | grep "PRETTY_NAME" | cut -d= -f2 |  sed 's/"//g'}
+${color1}${goto 35}Kernel : ${color}$kernel on $machine
+
+
+${color1}${font ConkySymbols:size=16}${font} ${voffset -10} System $hr${color}
+${color1}${goto 35}Core 1 : ${color}${freq_g 1}GHz ${color3}${alignr}${cpu cpu0}% ${cpubar cpu0 4,100}
+${color1}${goto 35}Core 2 : ${color}${freq_g 2}GHz ${color3}${alignr}${cpu cpu1}% ${cpubar cpu1 4,100}
+${color1}${goto 35}Core 3 : ${color}${freq_g 3}GHz ${color3}${alignr}${cpu cpu2}% ${cpubar cpu2 4,100}
+${color1}${goto 35}Core 4 : ${color}${freq_g 4}GHz ${color3}${alignr}${cpu cpu3}% ${cpubar cpu3 4,100}
+
+${color1}${goto 35}Uptime : ${color}$uptime_short ${color3}${alignr}${color1}Load  : ${color}${loadavg}
+
+
+${color1}${font ConkySymbols:size=16}${font} ${voffset -10} Temperature $hr${color}
+${color1}${goto 35}CPU : ${color}${exec sensors | grep 'temp1' | awk 'NR==1{print $2}'} ${alignr}${color1}GPU : ${color}${exec sensors | grep 'temp1' | awk 'NR==2{print $2}'}
+
+
+${color1}${font ConkySymbols:size=16}${font} ${voffset -10}Memory  $hr${color}
+${color1}${goto 35}RAM : ${color}$mem/$memmax ${color3}${alignr}$memperc% ${membar 4,100}
+${color1}${goto 35}SWAP: ${color}$swap/$swapmax ${color3}$alignr}$swapperc% ${swapbar 4,100}
+
+
+${color1}${font ConkySymbols:size=16}${font} ${voffset -10} Processes $hr${color}
+
+${color1}${goto 35}CPU usage ${alignr}Memory Usage${color}
+${color1}${goto 35}${stippled_hr}${color}
+${goto 35}${top name 1} ${color}${top cpu 1}% ${color2}${alignr}${top_mem name 1}${color}${top_mem mem_res 1}
+${goto 35}${top name 2} ${color}${top cpu 2}% ${color2}${alignr}${top_mem name 2}${color}${top_mem mem_res 2}
+${goto 35}${top name 3} ${color}${top cpu 3}% ${color2}${alignr}${top_mem name 3}${color}${top_mem mem_res 3}
+${goto 35}${top name 4} ${color}${top cpu 4}% ${color2}${alignr}${top_mem name 4}${color}${top_mem mem_res 4}
+${goto 35}${top name 5} ${color}${top cpu 5}% ${color2}${alignr}${top_mem name 5}${color}${top_mem mem_res 5}
+
+${color1}${goto 35}Processes: ${color}$processes ${color1}Running: ${color}$running_processes
+
+
+${color1}${font ConkySymbols:size=16}${font} ${voffset -10} Storage  $hr${color}
+${color1}${goto 35}ROOT : ${color}${fs_used /}/${fs_size /} ${color3}${alignr}${fs_used_perc /}% ${fs_bar 4,100 /}
+${goto 35}
+
+
+${color1}${font ConkySymbols:size=16}${font} ${voffset -10} Wireless  $hr${color}
+${color1}${goto 35}SSID          : ${color}${wireless_essid wlxd03745f1e0df} ${color1}${alignr}Signal: ${color}${wireless_link_qual_perc wlxd03745f1e0df}% ${color3}${wireless_link_bar 4,100 wlxd03745f1e0df}
+${color1}${goto 35}Bitrate       : ${color}${wireless_bitrate wlxd03745f1e0df}
+${color1}${goto 35}Total Down/Up : ${color}${totaldown wlxd03745f1e0df}/${totalup wlxd03745f1e0df} 
+${color1}${goto 35}Speed Down/Up : ${color}${downspeed wlxd03745f1e0df}/${upspeed wlxd03745f1e0df}
+
+]];
