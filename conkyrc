@@ -91,5 +91,4 @@ ${color1}${goto 35}Bitrate       : ${color}${wireless_bitrate wlxd03745f1e0df}
 ${color1}${goto 35}Total Down/Up : ${color}${totaldown wlxd03745f1e0df}/${totalup wlxd03745f1e0df} 
 ${color1}${goto 35}Speed Down/Up : ${color}${downspeed wlxd03745f1e0df}/${upspeed wlxd03745f1e0df}
 
-
 ]];
