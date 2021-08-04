@@ -44,6 +44,7 @@ conky.config = {
 }
 
 conky.text = [[
+
 ${color1}${voffset -10}GNU/Linux $hr ${color}
 ${color1}${goto 35}OS     : ${color}${execi 86400 cat `ls -atr /etc/*-release | tail -2` | grep "PRETTY_NAME" | cut -d= -f2 |  sed 's/"//g'}
 ${color1}${goto 35}Kernel : ${color}$kernel on $machine
